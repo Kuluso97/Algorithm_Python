@@ -1,37 +1,18 @@
-class Graph:
+from graph import Graph
 
-	def __init__(self):
-		self.vertex = {}
+def dfs(graph, source, visited):
 
-	def addEdge(self, start, end):
-		if start not in self.vertex.keys():
-			self.vertex[start] = [end]
-		else:
-			self.vertex[start].append(end)
+	if source not in graph.vertex.keys():
+		return
 
-		if end not in self.vertex.keys():
-			self.vertex[end] = [start]
-		else:
-			self.vertex[end].append(start)
+	print(source, end=' ')
+	
+	visited.add(source)
 
-	def dfs(self, source):
-		if source not in self.vertex.keys():
-			return -1
+	for i in graph.vertex[source]:
+		if i not in visited:
+			dfs(graph, i, visited)
 
-		print(source, end=' ')
-		visited = set()
-		visited.add(source)
-		for i in self.vertex[source]:
-			self.dfsHelper(i, visited)
-
-	def dfsHelper(self, source, visited):
-		if source in visited: return
-		visited.add(source)
-		print(source, end=' ')
-
-		for i in self.vertex[source]:
-			if i not in visited:
-				self.dfsHelper(i, visited)
 
 def main():
 	g = Graph()
@@ -44,7 +25,8 @@ def main():
 	g.addEdge('A', 'C')
 	g.addEdge('E', 'F')
 
-	g.dfs('A')
+	visited = set()
+	dfs(g, 'A', visited)
 
 if __name__ == '__main__':
 	main()
