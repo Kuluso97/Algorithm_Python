@@ -1,6 +1,5 @@
 import random
 
-
 ## In-place quicksort
 def quicksort(a, lo, hi):
 	if lo < hi:

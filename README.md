@@ -1,4 +1,4 @@
-# Simple python implementations of basic algorithms 
+# Python implementations of basic algorithms 
 
 Implement basic sorting and graph algorithms in python for fun and review.
 
