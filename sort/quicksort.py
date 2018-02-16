@@ -40,8 +40,7 @@ def main():
 	a = [random.randint(1,100) for _ in range(100)]
 
 	print(a)
-	a = quicksortTwo(a)
-	print(a)
+	print(quicksortTwo(a))
 
 if __name__ == '__main__':
 	main()
